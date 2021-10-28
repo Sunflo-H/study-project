@@ -49,18 +49,18 @@ addBtn.addEventListener('click',()=>{
 })
 
 
-function addTodo(){
+// function addTodo(){
 
-}
+// }
 
-function delTodo(){
+// function delTodo(){
 
-}
+// }
 
-function updateTodo(){
+// function updateTodo(){
 
-}
+// }
 
-function completeTodo(){
+// function completeTodo(){
 
-}
+// }
