@@ -12,10 +12,19 @@ function saveToDos(){
 
 function deleteToDo(event){
     const li = event.target.parentElement;
+    console.log(li.id);
+    console.log(toDos);
+    const newToDos = toDos.filter(item=>{
+        if(item.id != li.id){
+            return item;
+        }
+    });
+    toDos = newToDos;
+    saveToDos();
     li.remove();
 }
 
-function paintToDo(newTodo){
+function paintToDo(newTodoObj){
     const li = document.createElement("li");
     const span = document.createElement("span");
     const button = document.createElement("button");
@@ -23,7 +32,8 @@ function paintToDo(newTodo){
     button.addEventListener("click",deleteToDo);
     li.appendChild(span);
     li.appendChild(button);
-    span.innerText = newTodo;
+    span.innerText = newTodoObj.text;
+    li.id = newTodoObj.id;
     toDoList.appendChild(li);
 }
 
@@ -31,18 +41,21 @@ function handleToDoSubmit(event){
     event.preventDefault();
     const newTodo = toDoInput.value;
     toDoInput.value="";
-    toDos.push(newTodo);
-    paintToDo(newTodo);
+    const newTodoObj = {
+        text : newTodo,
+        id : Date.now()
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
     saveToDos();
 }
 
 toDoForm.addEventListener("submit",handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
-
-if(saveToDos !==null){
+if(savedToDos !== null){
+    console.log('저장소에서 가져오기 실행');
     const parseToDos=JSON.parse(savedToDos);
-    console.log(parseToDos);
     toDos=parseToDos;
     parseToDos.forEach(paintToDo);
 }
