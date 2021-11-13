@@ -1,0 +1,101 @@
+:root {
+  /* color */
+  --color-black: #3f454d;
+  --color-white: #ffffff;
+  --color-blue: #3b88c3;
+  --color-yellow: #fbbe28;
+  --color-pink: #fd7f84;
+  --color-light-grey: #dfdfdf;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,img {
+  background-color: var(--color-black);
+}
+
+button {
+  background-color: var(--color-black);
+  border: none;
+  cursor: pointer;
+}
+
+/* Headder */
+header {
+  padding-top: 10%;
+}
+
+/* Logo */
+header .logo {
+  text-align: center;
+}
+
+/* Filter */
+header .filter {
+  width: 40%;
+  margin: 0px auto;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+header .filter .filter-img-button {
+  width: 50px;
+  height: 50px;
+}
+
+header .filter .filter-img-button img {
+  width: 50px;
+}
+
+header .filter .filter-color-button {
+  font-size: 25px;
+  padding: 5px;
+  flex-basis: 10%;
+}
+
+.blue {
+background-color: var(--color-blue);
+}
+
+.yellow {
+  background-color: var(--color-yellow);
+}
+
+.pink {
+  background-color: var(--color-pink);
+}
+
+/* Main */
+main {
+  padding-top: 35px;
+}
+
+/* Shopping-list */
+main ul .shopping-list {
+  width: 40%;
+  height: 60px;
+  display: flex;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  overflow: hidden;
+  padding-left: 20px;
+  margin: 0px auto;
+  align-items: center;
+}
+
+main ul .shopping-list img {
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-white);
+}
+
+main ul .shopping-list span {
+  padding-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
