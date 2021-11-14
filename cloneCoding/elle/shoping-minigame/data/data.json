@@ -5,13 +5,23 @@
             "gender":"female",
             "size":"large",
             "color":"pink",
-            "image":"../img/pink_t.png"
+            "image":"img/pink_t.png"
         },
-        { "type":"pants",
+        { 
+            "type":"pants",
             "gender":"male",
             "size":"samll",
             "color":"blue",
-            "image":"../img/blue_p.png"
+            "image":"img/blue_p.png"
+        },
+        {
+            "type":"skirt",
+            "gender":"female",
+            "size":"samll",
+            "color":"yellow",
+            "image":"img/yellow_s.png"
         }
-    ]
+    ],
+    "test1" : "hihi",
+    "test2" : {"name" : "hbj"}
 }
