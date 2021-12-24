@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" ondragover="dragOver()" ondrop="drop()">
+    <button class="draggable" draggable="true" ondragstart="dragStart()" ondragend="dragEnd()" ondrop="drop()">🦊</button>
+    <button class="draggable" draggable="true" ondragstart="dragStart()" ondragend="dragEnd()">🐸</button>
+  </div>
+  <div class="container" ondragover="dragOver()" ondrop="drop()">
+    <button class="draggable" draggable="true" ondragstart="dragStart()" ondragend="dragEnd()">🐶</button>
+    <button class="draggable" draggable="true" ondragstart="dragStart()" ondragend="dragEnd()">🐱</button>
+  </div>
+  <script>
+    const draggables = document.querySelectorAll(".draggable");
+    const containers = document.querySelectorAll(".container");
+
+    function dragStart(){
+      console.log('---------------------------dragStart---------------------------');
+      event.target.classList.add('dragging');
+      console.log(event.target.classList);
+    }
+    function dragEnd(){
+      console.log('---------------------------dragEnd---------------------------');
+      event.target.classList.remove('dragging');
+      console.log(event.target.classList);
+      
+    }
+    function dragOver(){
+      event.preventDefault();
+      const draggable = document.querySelector('.dragging');
+      // console.log(event.target);
+      event.target.appendChild(draggable);
+    }
+
+    function drop(){
+      console.log('---------------------------drop---------------------------');
+      
+    }
+  </script>
+
+      <!-- <script>
+        let targetSrc;
+        let count = 0;
+        function onDragStart(event) {
+          event
+            .dataTransfer
+            .setData('text/plain', event.target.id);
+
+          event
+            .currentTarget
+            .style
+            .backgroundColor = 'yellow';
+        }
+
+        function onDragImgStart(event) {
+          event
+            .dataTransfer
+            .setData('text/plain', event.target.id);
+            console.log(event.dataTransfer.getData('text'));
+
+          let img = new Image();
+          img.src = event.target.src;
+          targetSrc = img.src;
+          event
+            .dataTransfer
+            .setDragImage(img, 10,10);
+          console.log(event.target.src);
+          event.target.classList.add('dragging');
+        }
+        
+        function onDragOver(event) {
+          const id = event
+            .dataTransfer
+            .getData('text');
+            console.log(id);
+          event.preventDefault();
+          console.log('dragOver');
+          
+          // let img = new Image();
+          // let img = document.createElement('img');
+          // img.src = targetSrc;
+          // console.log(img);
+          // const dropzone = event.target;
+          
+          // if(count==0){
+          //   dropzone.appendChild(img);
+          //   count=1;
+          // } else {
+          //   count=2;
+          //   console.log(count);
+          // }
+        }
+
+        function onDragLeave(event){
+          // console.log(event.target);
+          // console.log('drageleave');
+          // const dropzone = event.target;
+          // // console.log(img);
+          // let img = new Image();
+          // console.log(img);
+          // dropzone.removeChild(dropzone.lastElementChild);
+          // console.log(event.dataTransfer);
+        }
+
+        function onDrop(event) {
+          const id = event
+            .dataTransfer
+            .getData('text');
+            event.target.style.backgroundColor='yellow';
+
+          const draggableElement = document.getElementById(id);
+          const dropzone = event.target;
+
+          console.log(dropzone);
+          dropzone.appendChild(draggableElement);
+          event.target.classList.remove('dragging');
+          event
+            .dataTransfer
+            .clearData();
+        }
+      </script> -->
+</body>
+</html>
