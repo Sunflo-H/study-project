@@ -15,7 +15,6 @@ containers.forEach(container => {
   container.addEventListener("dragover", e => {
     e.preventDefault();
     // console.log();
-    console.log(e.clientX);
     const afterElement = getDragAfterElement(container, e.clientX);
     const draggable = document.querySelector(".dragging");
     container.appendChild(draggable);
@@ -29,12 +28,8 @@ function getDragAfterElement(container, x) {
   ]
   return draggableElements.reduce(
     (pre, cur) => {
-      console.log(pre);
-      console.log(cur);
       const box = cur.getBoundingClientRect(); 
       const offset = x - box.left - box.width /2;
-      console.log(box);
-      console.log(offset);
       if(offset < 0 && offset>pre.offset){
         return {offset:offset, element:cur};
       } else {
