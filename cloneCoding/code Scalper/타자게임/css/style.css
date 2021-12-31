@@ -45,7 +45,7 @@ body {
     width: 200px;
 }
 
-.time .score {
+.time, .score {
     font-size: 30px;
 }
 
